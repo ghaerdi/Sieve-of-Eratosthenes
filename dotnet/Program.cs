@@ -17,6 +17,5 @@
 }
 
 List<int> primes = sieveOfEratosthenes(40_000_000);
-Console.WriteLine(primes.Count);
-Console.WriteLine(primes.First());
-Console.WriteLine(primes.Last());
+Console.WriteLine($"primes len: {primes.Count}");
+Console.WriteLine($"last prime: {primes.Last()}");

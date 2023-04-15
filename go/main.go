@@ -29,7 +29,6 @@ func sieveOfEratosthenes(n int) (primes []int){
 func main() {
 	primes := sieveOfEratosthenes(40_000_000)
 	primesLen := len(primes)
-	fmt.Println(primesLen)
-	fmt.Println(primes[0])
-	fmt.Println(primes[primesLen-1])
+	fmt.Println("primes len: ", primesLen)
+	fmt.Println("last prime: ", primes[primesLen - 1])
 }
