@@ -2,15 +2,16 @@ package main
 
 import (
 	"math"
+	"fmt"
 )
 
-func primes(n int) (primes []int){
+func sieveOfEratosthenes(n int) (primes []int){
 	limit := int(math.Sqrt(float64(n)))
 	booleans := make([]bool, n)
 
 	for i := 2; i <= limit; i++ {
 		if !booleans[i] {
-			for j := i * i; i < n; i += j {
+			for j := i * i; j < n; j += i {
 				booleans[j] = true
 			}
 		}
@@ -26,5 +27,9 @@ func primes(n int) (primes []int){
 }
 
 func main() {
-	primes(40_000_000)
+	primes := sieveOfEratosthenes(40_000_000)
+	primesLen := len(primes)
+	fmt.Println(primesLen)
+	fmt.Println(primes[0])
+	fmt.Println(primes[primesLen-1])
 }
