@@ -1,4 +1,4 @@
-pub fn primes(n: usize) -> Vec<usize> {
+fn sieve_of_eratosthenes(n: usize) -> Vec<usize> {
     let mut booleans = vec![true; n];
     let mut primes = vec![];
     let limit = (n as f32).sqrt() as usize;
@@ -13,8 +13,8 @@ pub fn primes(n: usize) -> Vec<usize> {
         }
     }
 
-    for (i, &item) in booleans.iter().enumerate().take(n).skip(2) {
-        if item {
+    for i in 2..n {
+        if booleans[i] {
             primes.push(i);
         }
     }
@@ -23,5 +23,7 @@ pub fn primes(n: usize) -> Vec<usize> {
 }
 
 fn main() {
-    primes(40_000_000);
+    let primes = sieve_of_eratosthenes(40_000_000);
+    println!("primes len: {}", primes.len());
+    println!("last prime: {}", primes.last().unwrap());
 }
