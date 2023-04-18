@@ -13,8 +13,8 @@ Testing the performance of some languages and enviroments using the [Sieve of Er
 | 3        | .Net 7 C# | 0.3239s | 0.30s  | 0.34s   |
 | 4        | Zig       | 0.361s  | 0.34s  | 0.37s   |
 | 5        | Bun       | 0.859s  | 0.80s  | 0.91s   |
-| 6        | Deno      | 9.471s  | 9.15s  | 9.94s   |
-| 7        | Node      | 8.8929s | 8.62s  | 9.42s   |
+| 6        | Node      | 8.8929s | 8.62s  | 9.42s   |
+| 7        | Deno      | 9.471s  | 9.15s  | 9.94s   |
 | 8        | Python    | 12.709s | 11.95s | 13.56s  |
 
 ## [Rust](https://github.com/rust-lang/rust)
