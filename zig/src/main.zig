@@ -33,15 +33,14 @@ fn sieveOfEratosthenes(allocator: std.mem.Allocator, comptime n: u32) !std.Array
 }
 
 pub fn main() !void {
-    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
-    defer std.debug.assert(!gpa.deinit());
+    var c_alloc = std.heap.c_allocator;
+    // var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    // const gpaAllocator = gpa.allocator();
 
-    const gpaAllocator = gpa.allocator();
-
-    const primes = try sieveOfEratosthenes(gpaAllocator, 40_000_000);
+    const primes = try sieveOfEratosthenes(c_alloc, 40_000_000);
     defer primes.deinit();
 
-    const primesLen = std.mem.len(primes.items);
+    const primesLen = std.mem.sliceTo(primes.items, 0).len;
     std.debug.print("primes len: {}\n", .{primesLen});
-    std.debug.print("last prime: {}\n", .{primes.items[primesLen - 1]});
+    std.debug.print("last prime: {}\n", .{primes.getLast()});
 }
