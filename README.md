@@ -6,16 +6,16 @@ Testing the performance of some languages and enviroments using the [Sieve of Er
 
 ## Ranking summary
 
-| Position | Language  | Medium  | Lowest | Highest |
-|----------|-----------|---------|--------|---------|
-| 1        | Rust      | 0.266s  | 0.24s  | 0.28s   |
-| 2        | Go        | 0.279s  | 0.26s  | 0.29s   |
-| 3        | .Net 7 C# | 0.3239s | 0.30s  | 0.34s   |
-| 4        | Zig       | 0.361s  | 0.34s  | 0.37s   |
-| 5        | Bun       | 0.859s  | 0.80s  | 0.91s   |
-| 6        | Node      | 8.8929s | 8.62s  | 9.42s   |
-| 7        | Deno      | 9.471s  | 9.15s  | 9.94s   |
-| 8        | Python    | 12.709s | 11.95s | 13.56s  |
+| Position | Language | Version | Medium  | Lowest | Highest |
+|----------|----------|---------|---------|--------|---------|
+| 1        | Rust     | 1.75.0  | 0.271s  | 0.263s | 0.278s  |
+| 2        | Zig      | 0.11.0  | 0.275s  | 0.273s | 0.280s  |
+| 3        | Go       | 1.21.6  | 0.331s  | 0.298s | 0.331s  |
+| 4        | .Net C#  | 8.0.101 | 0.333s  | 0.322s | 0.349s  |
+| 5        | Bun      | 1.0.14  | 0.884s  | 0.874s | 0.891s  |
+| 6        | Python   | 3.11.6  | 4.5s    | 4.390s | 4.601s  |
+| 7        | Node     | 20.11.0 | 6.593s  | 6.559s | 6.651s  |
+| 8        | Deno     | 1.40.3  | N/A     | N/A    | N/A     |
 
 ## [Rust](https://github.com/rust-lang/rust)
 #### Commands
@@ -30,18 +30,11 @@ time ./target/release/rust
 ```
 
 #### Result
-- 0.24s (lowest)
-- 0.26s
-- 0.26s
-- 0.26s
-- 0.27s
-- 0.27s
-- 0.27s
-- 0.27s
-- 0.28s (highest)
-- 0.28s (highest)
+- 0.271s
+- 0.263s
+- 0.278s
 
-Medium: 0.266s
+Medium: 0.271s
 
 ## [Go](https://github.com/golang/go)
 #### Commands
@@ -56,24 +49,17 @@ time ./main
 ```
 
 #### Result
-- 0.26s (lowest)
-- 0.27s
-- 0.27s
-- 0.27s
-- 0.28s
-- 0.28s
-- 0.29s (highest)
-- 0.29s (highest)
-- 0.29s (highest)
-- 0.29s (highest)
+- 0.304s
+- 0.331s
+- 0.298s
 
-Medium: 0.279s
+Medium: 0.331s
 
 ## [Zig](https://github.com/ziglang/zig)
 #### Commands
 ##### Build
 ```console
-zig build -Drelease-fast=true
+zig build -Doptimize=ReleaseFast
 ```
 
 ##### Run
@@ -82,18 +68,11 @@ time ./zig-out/bin/zig
 ```
 
 #### Result
-- 0.34s (lowest)
-- 0.35s
-- 0.36s
-- 0.36s
-- 0.36s
-- 0.36s
-- 0.37s (highest)
-- 0.37s (highest)
-- 0.37s (highest)
-- 0.37s (highest)
+- 0.273s
+- 0.273s
+- 0.280s
 
-Medium: 0.361s
+Medium: 0.275s
 
 
 ## [Python](https://github.com/python/cpython)
@@ -104,18 +83,11 @@ time python main.py
 ```
 
 #### Result
-- 11.95s (lowest)
-- 12.33s
-- 12.34s
-- 12.52s
-- 12.62s
-- 12.77s
-- 12.91s
-- 13.03s
-- 13.06s
-- 13.56s (higher)
+- 4.390s
+- 4.509s
+- 4.601s
 
-Medium: 12.709s
+Medium: 4.5s
 
 ## [Node](https://github.com/nodejs/node)
 #### Commands
@@ -125,18 +97,11 @@ time node main.js
 ```
 
 #### Result
-- 8.62s (lowest)
-- 8.65s
-- 8.68s
-- 8.68s
-- 8.69s
-- 8.79s
-- 8.87s
-- 9.24s
-- 9.29s
-- 9.42s (highest)
+- 6.559s
+- 6.569s
+- 6.651s
 
-Medium: 8.8929s
+Medium: 6.593s
     
 ## [Deno](https://github.com/denoland/deno)
 #### Commands
@@ -146,18 +111,7 @@ time deno run main.js
 ```
 
 #### Result
-- 9.15s (lowest)
-- 9.18s
-- 9.18s
-- 9.32s
-- 9.33s
-- 9.54s
-- 9.54s
-- 9.59s
-- 9.94s (highest)
-- 9.94s (highest)
-
-Medium: 9.471s
+Could not be tested
 
 ## [Bun](https://github.com/oven-sh/bun)
 #### Commands
@@ -167,20 +121,13 @@ time bun run main.js
 ```
 
 #### Result
-- 0.80s (lowest)
-- 0.84s
-- 0.84s
-- 0.85s
-- 0.85s
-- 0.86s
-- 0.87s
-- 0.88s
-- 0.89s
-- 0.91s (highest)
+- 0.874s
+- 0.887s
+- 0.891s
 
-Medium: 0.859s
+Medium: 0.884s
 
-## [.Net 7 C#](https://github.com/dotnet/runtime)
+## [.Net C#](https://github.com/dotnet/runtime)
 #### Commands
 ##### Build
 ```console
@@ -189,19 +136,12 @@ dotnet build --configuration Release
 
 ##### Run
 ```console
-time ./bin/Release/net6.0/dotnet
+time ./bin/Release/net8.0/dotnet
 ```
 
 #### Result
-- 0.30s (lowest)
-- 0.30s (lowest)
-- 0.32s
-- 0.33s
-- 0.33s
-- 0.33s
-- 0.33s
-- 0.33s
-- 0.33s
-- 0.34s (highest)
+- 0.349s
+- 0.322s
+- 0.328s
 
-Medium: 0.3239s
+Medium: 0.333s
